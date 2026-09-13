@@ -7,5 +7,6 @@ _: {
     ./formater.nix
     ./linter.nix
     ./icon.nix
+    ./completion.nix
   ];
 }
