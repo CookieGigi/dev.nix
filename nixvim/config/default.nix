@@ -11,5 +11,6 @@
     ./opts.nix
     ./colorscheme.nix
     ./lsp.nix
+    ./diagnostic.nix
   ];
 }
