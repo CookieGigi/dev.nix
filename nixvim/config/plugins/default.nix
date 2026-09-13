@@ -6,5 +6,6 @@ _: {
   imports = [
     ./formater.nix
     ./linter.nix
+    ./icon.nix
   ];
 }
