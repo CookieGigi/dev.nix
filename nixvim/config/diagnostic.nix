@@ -1,5 +1,4 @@
-_:{
-
+_: {
   diagnostic.settings = {
     virtual_text = true;
     signs = true;
@@ -11,6 +10,4 @@ _:{
       source = "if_many";
     };
   };
-
-
 }

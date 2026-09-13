@@ -7,10 +7,10 @@ _: {
       nil_ls = {
         enable = true;
         config = {
-	  cmd = [ "nil" ];
-	  filetypes = [ "nix" ];
-	  root_markers = [ "flake.nix" ".git" ];
-	};
+          cmd = ["nil"];
+          filetypes = ["nix"];
+          root_markers = ["flake.nix" ".git"];
+        };
       };
     };
   };
