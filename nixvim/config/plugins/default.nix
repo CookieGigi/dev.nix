@@ -8,5 +8,6 @@ _: {
     ./linter.nix
     ./icon.nix
     ./completion.nix
+    ./treesitter.nix
   ];
 }
