@@ -3,4 +3,7 @@ _: {
     which-key.enable = true;
   };
 
+  imports = [
+    ./formater.nix
+  ];
 }
