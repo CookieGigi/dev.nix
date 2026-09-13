@@ -5,5 +5,6 @@ _: {
 
   imports = [
     ./formater.nix
+    ./linter.nix
   ];
 }
