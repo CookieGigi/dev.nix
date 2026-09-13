@@ -9,5 +9,6 @@ _: {
     ./icon.nix
     ./completion.nix
     ./treesitter.nix
+    ./snacks.nix
   ];
 }
