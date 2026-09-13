@@ -12,5 +12,6 @@
     ./colorscheme.nix
     ./lsp.nix
     ./diagnostic.nix
+    ./plugins
   ];
 }
