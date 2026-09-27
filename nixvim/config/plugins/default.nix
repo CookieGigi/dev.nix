@@ -7,5 +7,6 @@ _: {
     ./treesitter.nix
     ./snacks.nix
     ./which-keys.nix
+    ./actions.nix
   ];
 }

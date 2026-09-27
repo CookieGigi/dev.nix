@@ -67,11 +67,5 @@ _: {
       options.desc = "Rename";
       action = "<cmd>lua vim.lsp.buf.rename()<CR>";
     }
-    {
-      key = "<leader>ca";
-      mode = "n";
-      options.desc = "Action";
-      action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
-    }
   ];
 }
