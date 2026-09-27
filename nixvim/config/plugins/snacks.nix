@@ -15,6 +15,7 @@
 
   extraPackages = with pkgs; [
     fd
+    lazygit
   ];
 
   keymaps = [
