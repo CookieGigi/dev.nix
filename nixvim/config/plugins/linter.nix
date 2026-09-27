@@ -10,22 +10,6 @@
           "deadnix"
         ];
       };
-      linters = {
-        statix = {
-          cmd = "statix";
-          args = [
-            "check"
-            "-i"
-            "--stdin"
-          ];
-          stdin = true;
-        };
-        deadnix = {
-          cmd = "deadnix";
-          args = ["-"];
-          stdin = true;
-        };
-      };
       autoCmd = {
         event = [
           "BufWritePost"
@@ -44,7 +28,7 @@
     {
       key = "<leader>cl";
       mode = "n";
-      options.desc = "next tab";
+      options.desc = "Lint buffer";
       action = "<cmd>lua require('lint').try_lint()<CR>";
     }
   ];
