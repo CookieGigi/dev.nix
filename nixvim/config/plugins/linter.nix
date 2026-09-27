@@ -39,4 +39,13 @@
       };
     };
   };
+
+  keymaps = [
+    {
+      key = "<leader>cl";
+      mode = "n";
+      options.desc = "next tab";
+      action = "<cmd>lua require('lint').try_lint()<CR>";
+    }
+  ];
 }
