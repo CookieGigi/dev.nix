@@ -19,27 +19,21 @@
 
   keymaps = [
     {
-      key = "<leader>f";
-      mode = "n";
-      options.desc = "find";
-      action = "";
-    }
-    {
       key = "<leader>ff";
       action = "<cmd>lua Snacks.picker.files()<cr>";
       mode = "n";
-      options.desc = "Find files";
+      options.desc = "Files";
     }
     {
       key = "<leader>fg";
       action = "<cmd>lua Snacks.picker.grep()<cr>";
       mode = "n";
-      options.desc = "Live grep";
+      options.desc = "Grep";
     }
     {
       key = "<leader>g";
       mode = "n";
-      options.desc = "git";
+      options.desc = "Git";
       action = "";
     }
     {
