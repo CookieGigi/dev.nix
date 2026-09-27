@@ -14,4 +14,13 @@ _: {
       };
     };
   };
+
+  keymaps = [
+    {
+      key = "<leader>cf";
+      mode = "n";
+      options.desc = "format";
+      action = "<cmd>lua require('conform').format({ lsp_format = 'fallback' })<CR>";
+    }
+  ];
 }
