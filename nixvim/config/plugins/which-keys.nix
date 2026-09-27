@@ -8,45 +8,53 @@ _: {
           mode = ["n" "v"];
         }
       ];
+      settings.spec = [
+        {
+          "__unkeyed-1" = "g";
+          group = "Go to";
+          icon = "󰁔";
+          mode = "n";
+        }
+        {
+          "__unkeyed-1" = "<leader>s";
+          group = "Show";
+          icon = "󰈈";
+          mode = "n";
+        }
+        {
+          "__unkeyed-1" = "<leader>f";
+          group = "Find";
+          icon = "";
+          mode = "n";
+        }
+        {
+          "__unkeyed-1" = "<leader>c";
+          group = "Code";
+          icon = "";
+          mode = "n";
+        }
+        {
+          "__unkeyed-1" = "<leader>n";
+          group = "New";
+          icon = "";
+          mode = "n";
+        }
+        {
+          "__unkeyed-1" = "<leader>x";
+          group = "Close";
+          icon = "󰅖";
+          mode = "n";
+        }
+      ];
     };
   };
 
   keymaps = [
     {
-      key = "g";
+      key = "<leader>?";
       mode = "n";
-      options.desc = "Go to";
-      action = "";
-    }
-    {
-      key = "<leader>s";
-      mode = "n";
-      options.desc = "Show";
-      action = "";
-    }
-    {
-      key = "<leader>f";
-      mode = "n";
-      options.desc = "Find";
-      action = "";
-    }
-    {
-      key = "<leader>c";
-      mode = "n";
-      options.desc = "Code";
-      action = "";
-    }
-    {
-      key = "<leader>n";
-      mode = "n";
-      options.desc = "New";
-      action = "";
-    }
-    {
-      key = "<leader>x";
-      mode = "n";
-      options.desc = "Close";
-      action = "";
+      options.desc = "List of keys";
+      action = "<cmd>lua require('which-key').show()<CR>";
     }
   ];
 }
