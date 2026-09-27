@@ -36,5 +36,17 @@ _: {
       options.desc = "Code";
       action = "";
     }
+    {
+      key = "<leader>n";
+      mode = "n";
+      options.desc = "New";
+      action = "";
+    }
+    {
+      key = "<leader>x";
+      mode = "n";
+      options.desc = "Close";
+      action = "";
+    }
   ];
 }

@@ -13,5 +13,6 @@
     ./lsp.nix
     ./diagnostic.nix
     ./plugins
+    ./keymap.nix
   ];
 }
