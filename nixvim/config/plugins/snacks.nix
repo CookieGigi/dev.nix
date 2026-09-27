@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   plugins = {
     snacks = {
       enable = true;
@@ -13,11 +13,16 @@ _: {
     };
   };
 
+  extraPackages = with pkgs; [
+    fd
+  ];
+
   keymaps = [
     {
       key = "<leader>f";
       mode = "n";
       options.desc = "find";
+      action = "";
     }
     {
       key = "<leader>ff";
@@ -30,6 +35,12 @@ _: {
       action = "<cmd>lua Snacks.picker.grep()<cr>";
       mode = "n";
       options.desc = "Live grep";
+    }
+    {
+      key = "<leader>g";
+      mode = "n";
+      options.desc = "git";
+      action = "";
     }
     {
       key = "<leader>gg";
