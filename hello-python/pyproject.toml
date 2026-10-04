@@ -10,3 +10,8 @@ line-length = 88
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+# `src` layout without an installed package, so tests import `hello` from src.
+pythonpath = ["src"]
+testpaths = ["tests"]

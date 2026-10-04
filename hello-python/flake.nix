@@ -23,7 +23,8 @@
     devShells.${system}.default = pkgs.mkShell {
       packages = [
         nixvim.packages.${system}.python
-        pkgs.python3
+        # neotest-python runs `pytest` through the interpreter found on PATH
+        (pkgs.python3.withPackages (ps: [ps.pytest]))
         pkgs.ruff
         pkgs.basedpyright
       ];
