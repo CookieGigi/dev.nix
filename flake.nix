@@ -19,8 +19,17 @@
         pkgs,
         ...
       }: {
-        devShells.default = pkgs.mkShell {
-          packages = [nvim.packages.${system}.default];
+        devShells = {
+          default = pkgs.mkShell {
+            packages = [
+              nvim.packages.${system}.default
+            ];
+          };
+          python = pkgs.mkShell {
+            packages = [
+              nvim.packages.${system}.python
+            ];
+          };
         };
 
         formatter = pkgs.alejandra;

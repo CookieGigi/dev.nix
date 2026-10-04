@@ -4,12 +4,6 @@
     lint = {
       enable = true;
       autoInstall.enable = true;
-      lintersByFt = {
-        nix = [
-          "statix"
-          "deadnix"
-        ];
-      };
       autoCmd = {
         event = [
           "BufWritePost"

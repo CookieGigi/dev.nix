@@ -22,15 +22,40 @@
         pkgs,
         ...
       }: let
-        nvim =
+        mkNvim = extraModules:
           (nixvim.lib.evalNixvim {
             inherit system;
             extraSpecialArgs = {inherit inputs;};
-            modules = [./config];
+            modules = [./config] ++ extraModules;
           }).config.build.package;
+
+        basePkg = mkNvim [];
+        nixPkg = mkNvim [./languages/nix.nix];
+        pythonPkg = mkNvim [
+          ./languages/nix.nix
+          ./languages/python.nix
+        ];
       in {
-        packages.default = nvim;
-        devShells.default = pkgs.mkShell {packages = [nvim];};
+        packages = {
+          base = basePkg;
+          default = nixPkg;
+          nix = nixPkg;
+          python = pythonPkg;
+        };
+
+        devShells = {
+          default = pkgs.mkShell {packages = [nixPkg];};
+          python = pkgs.mkShell {
+            packages = [
+              pythonPkg
+              pkgs.python3
+              pkgs.ruff
+              pkgs.basedpyright
+            ];
+          };
+        };
+
+        formatter = pkgs.alejandra;
       };
     };
 }
