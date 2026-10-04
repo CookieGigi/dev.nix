@@ -57,8 +57,10 @@ These bindings are defined in `config/plugins/actions.nix`, `config/plugins/snac
 | `<leader>s` | Normal | Show group label, no command | `which-keys.nix` |
 | `<leader>f` | Normal | Find group label, no command | `which-keys.nix` |
 | `<leader>c` | Normal | Code group label, no command | `which-keys.nix` |
+| `<leader>d` | Normal | Diagnostic group label, no command | `which-keys.nix` |
+| `<leader>t` | Normal | Test group label, no command | `which-keys.nix` |
 
-The group-label entries have `action = ""`; they do not invoke a plugin command.
+The group-label entries have `action = ""`; they do not invoke a plugin command. Every `<leader>` group label is declared in `config/plugins/which-keys.nix`, including the ones owned by other modules.
 
 ### actions-preview
 
@@ -76,7 +78,7 @@ The plugin exposes one action to invoke, `require('actions-preview').code_action
 
 ### neotest
 
-Defined in `config/plugins/neotest.nix`, so these bindings exist in every package. The `<leader>t` group label is registered there too. The plugin is enabled everywhere, but a test framework adapter is language specific: `languages/python.nix` adds the `neotest-python` adapter, so the `python` package can actually discover and run pytest tests.
+Defined in `config/plugins/neotest.nix`, so these bindings exist in every package. The `<leader>t` group label is registered in `config/plugins/which-keys.nix` alongside the other leader groups. The plugin is enabled everywhere, but a test framework adapter is language specific: `languages/python.nix` adds the `neotest-python` adapter, so the `python` package can actually discover and run pytest tests.
 
 | Key | Mode | Action | Nixvim `action` |
 | --- | --- | --- | --- |

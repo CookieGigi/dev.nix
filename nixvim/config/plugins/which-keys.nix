@@ -34,6 +34,18 @@ _: {
           mode = "n";
         }
         {
+          "__unkeyed-1" = "<leader>d";
+          group = "Diagnostic";
+          icon = "";
+          mode = "n";
+        }
+        {
+          "__unkeyed-1" = "<leader>t";
+          group = "Test";
+          icon = "󱖫";
+          mode = "n";
+        }
+        {
           "__unkeyed-1" = "<leader>n";
           group = "New";
           icon = "";

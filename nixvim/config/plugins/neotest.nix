@@ -9,15 +9,6 @@ _: {
         status.virtual_text = true;
       };
     };
-
-    which-key.settings.spec = [
-      {
-        __unkeyed-1 = "<leader>t";
-        group = "Test";
-        icon = "";
-        mode = "n";
-      }
-    ];
   };
 
   keymaps = [
