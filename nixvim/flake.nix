@@ -48,7 +48,8 @@
           python = pkgs.mkShell {
             packages = [
               pythonPkg
-              pkgs.python3
+              # neotest-python runs `pytest` through the interpreter found on PATH
+              (pkgs.python3.withPackages (ps: [ps.pytest]))
               pkgs.ruff
               pkgs.basedpyright
             ];

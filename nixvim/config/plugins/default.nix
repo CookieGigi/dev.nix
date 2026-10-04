@@ -8,5 +8,6 @@ _: {
     ./snacks.nix
     ./which-keys.nix
     ./actions.nix
+    ./neotest.nix
   ];
 }

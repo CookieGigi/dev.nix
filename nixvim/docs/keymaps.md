@@ -44,7 +44,7 @@ Neovim already maps `K` to hover, `grn` to rename, `grr` to references, `gra` to
 
 ## Plugin keymaps
 
-These bindings are defined in `config/plugins/actions.nix`, `config/plugins/snacks.nix`, and `config/plugins/which-keys.nix`:
+These bindings are defined in `config/plugins/actions.nix`, `config/plugins/snacks.nix`, `config/plugins/which-keys.nix`, and `config/plugins/neotest.nix`:
 
 | Key | Mode | Action | Source |
 | --- | --- | --- | --- |
@@ -73,6 +73,24 @@ The plugin exposes one action to invoke, `require('actions-preview').code_action
 | Apply directly if exactly one action is available | `"<cmd>lua require('actions-preview').code_actions({ apply = true })<CR>"` |
 
 `code_actions()` also supports Visual mode, but the current `<leader>ca` mapping is Normal mode only. To use a selection, add a Visual-mode mapping with the same action. Actions require an attached LSP server that supports code actions. Preview may not be available for server actions implemented as commands rather than text edits.
+
+### neotest
+
+Defined in `config/plugins/neotest.nix`, so these bindings exist in every package. The `<leader>t` group label is registered there too. The plugin is enabled everywhere, but a test framework adapter is language specific: `languages/python.nix` adds the `neotest-python` adapter, so the `python` package can actually discover and run pytest tests.
+
+| Key | Mode | Action | Nixvim `action` |
+| --- | --- | --- | --- |
+| `<leader>ta` | Normal | Run nearest test | `"<cmd>lua require('neotest').run.run()<CR>"` |
+| `<leader>tf` | Normal | Run test file | `"<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>"` |
+| `<leader>td` | Normal | Run test directory | `"<cmd>lua require('neotest').run.run(vim.fn.getcwd())<CR>"` |
+| `<leader>tr` | Normal | Run last test | `"<cmd>lua require('neotest').run.run_last()<CR>"` |
+| `<leader>ts` | Normal | Toggle test summary | `"<cmd>lua require('neotest').summary.toggle()<CR>"` |
+| `<leader>to` | Normal | Show test output | `"<cmd>lua require('neotest').output.open({ enter = true })<CR>"` |
+| `<leader>tw` | Normal | Toggle test watch | `"<cmd>lua require('neotest').watch.toggle()<CR>"` |
+
+The `run` argument is optional, so `run.run()` uses the position under the cursor. Running a directory path runs every discovered test under it. `output.open_on_run` is `false`, so the output panel stays closed until you ask for it with `<leader>to`.
+
+The adapter uses the `pytest` runner, so `pytest` must be importable by the interpreter on `PATH` inside `nix develop`. The `python` devShell provides it via `pkgs.python3.withPackages`.
 
 ### blink.cmp default preset
 
@@ -255,4 +273,4 @@ keymaps = [
 ];
 ```
 
-References: [Neovim quick reference](https://neovim.io/doc/user/quickref/), [Neovim diagnostics](https://neovim.io/doc/user/diagnostic/), [Neovim LSP](https://neovim.io/doc/user/lsp/), [actions-preview](https://github.com/aznhe21/actions-preview.nvim), [Snacks picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md), [blink.cmp presets](https://github.com/Saghen/blink.cmp/blob/main/lua/blink/cmp/keymap/presets.lua), [Conform](https://github.com/stevearc/conform.nvim), [nvim-lint](https://github.com/mfussenegger/nvim-lint), and [which-key](https://github.com/folke/which-key.nvim).
+References: [Neovim quick reference](https://neovim.io/doc/user/quickref/), [Neovim diagnostics](https://neovim.io/doc/user/diagnostic/), [Neovim LSP](https://neovim.io/doc/user/lsp/), [actions-preview](https://github.com/aznhe21/actions-preview.nvim), [Snacks picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md), [blink.cmp presets](https://github.com/Saghen/blink.cmp/blob/main/lua/blink/cmp/keymap/presets.lua), [Conform](https://github.com/stevearc/conform.nvim), [nvim-lint](https://github.com/mfussenegger/nvim-lint), [which-key](https://github.com/folke/which-key.nvim), [neotest](https://github.com/nvim-neotest/neotest), and [neotest-python](https://github.com/nvim-neotest/neotest-python).
